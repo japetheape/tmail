@@ -749,5 +749,13 @@ Blah
 EOF
     assert_equal(crlf(expected), result)
   end
+
+  def test_double_carriage_return
+    assert_nothing_raised do
+      tmail = TMail::Mail.load("#{File.dirname(__FILE__)}/fixtures/raw_email_with_double_carriage_return")
+      _ = tmail.body
+    end
+  end
+
   
 end

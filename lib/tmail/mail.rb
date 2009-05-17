@@ -388,8 +388,12 @@ module TMail
     def parse_header( f )
       name = field = nil
       unixfrom = nil
+      stop = false
 
-      while line = f.gets
+      while (line = f.gets) && !stop
+        # thread \r\r\n as \r\n\r\n (double new line)
+        stop = true if line =~ /\r\r\n\z/
+
         case line
         when /\A[ \t]/             # continue from prev line
           raise SyntaxError, 'mail is began by space' unless field
