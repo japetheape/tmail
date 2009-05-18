@@ -348,21 +348,22 @@ module TMail
     def scanadd( str, force = false )
       types = ''
       strs = []
-      if str.respond_to?(:encoding)
+      has_encoding = str.respond_to?(:encoding)
+      if has_encoding
         enc = str.encoding 
         str.force_encoding(Encoding::ASCII_8BIT)
       end
       until str.empty?
         if m = /\A[^\e\t\r\n ]+/.match(str)
           types << (force ? 'j' : 'a')
-          if str.respond_to?(:encoding)
+          if has_encoding
             strs.push m[0].force_encoding(enc)
           else
             strs.push m[0]
           end
         elsif m = /\A[\t\r\n ]+/.match(str)
           types << 's'
-          if str.respond_to?(:encoding)
+          if has_encoding
             strs.push m[0].force_encoding(enc)
           else
             strs.push m[0]
@@ -373,7 +374,7 @@ module TMail
           str = m.post_match
           if esc != "\e(B" and m = /\A[^\e]+/.match(str)
             types << 'j'
-            if str.respond_to?(:encoding)
+            if has_encoding
               strs.push m[0].force_encoding(enc)
             else
               strs.push m[0]

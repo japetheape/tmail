@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'test_helper'
 require 'tmail'
 
@@ -42,7 +43,9 @@ HERE
     fixture = File.read(File.dirname(__FILE__) + "/fixtures/raw_email8")
     mail = TMail::Mail.parse(fixture)
     attachment = mail.attachments.last
-    assert_equal "01 Quien Te Dij\212at. Pitbull.mp3", attachment.original_filename
+    expected = "01 Quien Te Dij\212at. Pitbull.mp3"
+    expected.force_encoding "BINARY" if expected.respond_to? :force_encoding
+    assert_equal expected, attachment.original_filename
   end
 
   def test_attachment_with_quoted_filename

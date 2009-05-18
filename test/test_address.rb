@@ -170,11 +170,16 @@ class TestAddress < Test::Unit::TestCase
     # "\223\372\226{\214\352"
     # "\e$BF|K\\8l\e(B"
     # GyRCRnxLXDhsGyhC
+    force = if "".respond_to? :force_encoding
+              proc{|x,e| x.force_encoding e }
+            else
+              proc{|x,e|}
+            end
 
     TMail.KCODE = 'NONE'
     validate_case__address\
     '=?iso-2022-jp?B?GyRCRnxLXDhsGyhC?= <aamine@loveruby.net>',
-        :display_name => "\e$BF|K\\8l\e(B",
+        :display_name => force["\e$BF|K\\8l\e(B", "ISO-2022-JP"],
         :address      => 'aamine@loveruby.net',
         :local        => 'aamine',
         :domain       => 'loveruby.net',
@@ -182,7 +187,7 @@ class TestAddress < Test::Unit::TestCase
 
     validate_case__address\
     '=?iso-2022-jp?Q?=1b=24=42=46=7c=4b=5c=38=6c=1b=28=42?= <aamine@loveruby.net>',
-        :display_name => "\e$BF|K\\8l\e(B",
+        :display_name => force["\e$BF|K\\8l\e(B", "iso-2022-jp"],
         :address      => 'aamine@loveruby.net',
         :local        => 'aamine',
         :domain       => 'loveruby.net',
@@ -209,7 +214,7 @@ class TestAddress < Test::Unit::TestCase
 
     TMail.KCODE = 'SJIS'
     expected = "\223\372\226{\214\352"
-    expected.force_encoding('Windows-31J') if expected.respond_to? :force_encoding
+    expected.force_encoding('SJIS') if expected.respond_to? :force_encoding
     validate_case__address\
     '=?iso-2022-jp?B?GyRCRnxLXDhsGyhC?= <aamine@loveruby.net>',
         :display_name => expected,
