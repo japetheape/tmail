@@ -173,7 +173,7 @@ class TestAddress < Test::Unit::TestCase
     force = if "".respond_to? :force_encoding
               proc{|x,e| x.force_encoding e }
             else
-              proc{|x,e|}
+              proc{|x,e| x }
             end
 
     TMail.KCODE = 'NONE'
