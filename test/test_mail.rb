@@ -754,6 +754,14 @@ EOF
     assert_nothing_raised do
       tmail = TMail::Mail.load("#{File.dirname(__FILE__)}/fixtures/raw_email_with_double_carriage_return")
       _ = tmail.body
+      puts _
+    end
+  end
+
+  def test_html_body_start
+    assert_nothing_raised do
+      tmail = TMail::Mail.load("#{File.dirname(__FILE__)}/fixtures/raw_email_with_bad_body_start")
+      _ = tmail.body
     end
   end
 

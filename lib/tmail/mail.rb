@@ -414,6 +414,10 @@ module TMail
 
         when /^charset=.*/
 
+        when /\A<html/i 
+          # simple heuristic for bad formed mails
+          #  - look like content start immediately after header
+          # without double new line
         else
           raise SyntaxError, "wrong mail header: '#{line.inspect}'"
         end
