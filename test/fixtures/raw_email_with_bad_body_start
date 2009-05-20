@@ -1,0 +1,45 @@
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtTQ0w9MA==
+X-Message-Status: n:0
+X-SID-PRA: webmaster@mhra.gov.uk
+X-Message-Info: JGTYoYF78jF71Sc6+qaCBPEwaUzA7FHKnbiJ3jnvmHHswe9n7/7UIPFTcjBOD35JTddWzSLeSgjD/c8GKoxouLFglgIePrjG
+Received: from intixsv02.ix.ioko365.com ([83.98.64.200]) by SNT0-MC1-F29.Snt0.hotmail.com with Microsoft
+ SMTPSVC(6.0.3790.3959);
+         Tue, 19 May 2009 05:30:05 -0700
+Received: from [172.30.6.11] (helo=www.mhra.gov.uk)
+        by intixsv02.ix.ioko365.com with smtp (Exim 4.43)
+        id 1M6OSK-0004ID-AC
+        for shyams80@live.in; Tue, 19 May 2009 13:30:04 +0100
+To: "shyam" <shyams80@live.in>
+From: webmaster@mhra.gov.uk
+Subject: MHRA  - new Publication: One Liners issue 67 - May 2009
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=IntradocMail
+Return-Path: webmaster@mhra.gov.uk
+Message-ID: <SNT0-MC1-F29f6JvZdt006148b3@SNT0-MC1-F29.Snt0.hotmail.com>
+X-OriginalArrivalTime: 19 May 2009 12:30:05.0386 (UTC) FILETIME=[89F5AAA0:01C9D87D]
+Date: 19 May 2009 05:30:05 -0700
+
+--IntradocMail
+Content-Type: text/html; charset="utf-8";
+Content-Transfer-Encoding: 8bit
+Content-Disposition: inline; filename="page.htm"
+Content-Description: Stellent html email notification
+<html>
+        <head>
+                <style>
+                        body { margin: 0; padding: 0; font-size: 100.1%; font-family: arial, sans-serif;
+ color: #555; }
+                        h1, h2, h3, h4 { margin: 0; padding: 0; position: relative; }
+                        h1 { font-size: 200%; color: #555; padding: 0.2em 0em; font-weight: normal; bord
+er-bottom: 3px solid #310d7a; }
+                        h2 { color: #555; font-size: 170%; padding: 0.2em 0em; }
+                        h4 { font-size: 100%; }
+                </style>
+        </head>
+      <body>
+		This is bad body
+	  </body>
+</html>
+--IntradocMail--
+
+

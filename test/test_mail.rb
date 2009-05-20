@@ -757,5 +757,12 @@ EOF
     end
   end
 
+  def test_html_body_start
+    assert_nothing_raised do
+      tmail = TMail::Mail.load("#{File.dirname(__FILE__)}/fixtures/raw_email_with_bad_body_start")
+      assert_equal 1, tmail.parts.size
+      assert_match /\A<html/, tmail.parts.first.body
+    end
+  end
   
 end

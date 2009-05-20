@@ -414,6 +414,12 @@ module TMail
 
         when /^charset=.*/
 
+        when /\A<html/i
+          # simple heuristic for bad formed mails
+          #  - look like content start immediately after header
+          # without double new line
+          f.seek -line.size, IO::SEEK_CUR # not universal, but better then nothing
+          break
         else
           raise SyntaxError, "wrong mail header: '#{line.inspect}'"
         end
@@ -535,7 +541,10 @@ module TMail
 
     def skip_header( f )
       while line = f.gets
-        return if /\A[\r\n]*\z/ === line
+        if /(\A[\r\n]*\z)|(\A<html)/ === line
+          f.seek -line.size, IO::SEEK_CUR if $2
+          return
+        end
       end
     end
 
