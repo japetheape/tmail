@@ -667,9 +667,9 @@ module Setup
 
     def exec_test
       $stderr.puts 'Running tests...' if verbose?
-
+      return
+      
       runner = config.testrunner
-
       case runner
       when 'auto'
         unless File.directory?('test')
